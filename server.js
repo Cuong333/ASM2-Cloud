@@ -23,6 +23,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     });
 
     app.set("view engine", "ejs");
+    res.render("index");
 
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(express.static("public"));
