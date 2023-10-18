@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>ATN Toy Store</title>
+    <link rel="stylesheet" href="/CSS/styles.css">
+</head>
+
+<body>
+
+    <h1>ATN Toy Store</h1>
+
+    <!-- CREATE Task -->
+    <form action="/quotes" method="POST">
+        <input type="text" placeholder="Name" name="name" />
+        <input type="text" placeholder="Price" name="price" />
+        <input type="text" placeholder="Description" name="description" />
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- READ Task -->
+    <h2>Products list</h2>
+    <ul class="quotes">
+        <!-- Loop through products -->
+        <% quotes.forEach(product=> { %>
+            <li class="quote">
+                <span>Name: <%= product.name %></span>
+                <span>Price: <%= product.price %>$</span>
+                <span>Description: <%= product.description %></span>
+                <!-- Add other fields here -->
+                <form action="/quotes/<%= product._id %>/delete" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+            <% }) %>
+    </ul>
+</body>
+</html>
